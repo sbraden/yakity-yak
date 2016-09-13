@@ -4,7 +4,13 @@ from sacred.observers import MongoObserver
 
 ex = Experiment('example_experiment')
 
-ex.observers.append(MongoObserver.create())
+ex.observers.append(MongoObserver.create(
+    url='127.0.0.1:27017',
+    db_name='sacred'
+    )
+)
+
+import time
 
 @ex.config
 def my_config():
